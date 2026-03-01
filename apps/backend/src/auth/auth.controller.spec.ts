@@ -4,7 +4,6 @@ import { AuthService } from './auth.service';
 
 describe('AuthController', () => {
   let authController: AuthController;
-  let authService: AuthService;
 
   const mockAuthService = {
     register: jest.fn(),
@@ -20,7 +19,6 @@ describe('AuthController', () => {
     }).compile();
 
     authController = module.get<AuthController>(AuthController);
-    authService = module.get<AuthService>(AuthService);
 
     jest.clearAllMocks();
   });

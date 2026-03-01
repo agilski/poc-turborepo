@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { INestApplication, ValidationPipe } from '@nestjs/common';
-import * as request from 'supertest';
+import request from 'supertest';
 import { AppModule } from '../src/app.module';
 import { PrismaService } from '../src/prisma/prisma.service';
 
@@ -31,7 +31,11 @@ describe('Auth (e2e)', () => {
     await app.close();
   });
 
-  const testUser = { email: 'e2e@example.com', password: 'password123', name: 'E2E User' };
+  const testUser = {
+    email: 'e2e@example.com',
+    password: 'password123',
+    name: 'E2E User',
+  };
 
   describe('POST /auth/register', () => {
     it('should register a new user and return tokens', () => {
@@ -39,7 +43,7 @@ describe('Auth (e2e)', () => {
         .post('/auth/register')
         .send(testUser)
         .expect(201)
-        .expect((res) => {
+        .expect((res: any) => {
           expect(res.body.accessToken).toBeDefined();
           expect(res.body.refreshToken).toBeDefined();
         });
@@ -72,7 +76,7 @@ describe('Auth (e2e)', () => {
         .post('/auth/login')
         .send({ email: testUser.email, password: testUser.password })
         .expect(201)
-        .expect((res) => {
+        .expect((res: any) => {
           expect(res.body.accessToken).toBeDefined();
           expect(res.body.refreshToken).toBeDefined();
         });
@@ -94,7 +98,7 @@ describe('Auth (e2e)', () => {
         .send(testUser)
         .expect(201);
 
-      const { accessToken, refreshToken } = registerRes.body;
+      const { accessToken } = registerRes.body;
 
       // Access protected route (GET / is public, so test logout which is protected)
       // Verify token works by calling logout
@@ -126,9 +130,7 @@ describe('Auth (e2e)', () => {
     });
 
     it('should reject requests to protected routes without token', () => {
-      return request(app.getHttpServer())
-        .post('/auth/logout')
-        .expect(401);
+      return request(app.getHttpServer()).post('/auth/logout').expect(401);
     });
   });
 });
