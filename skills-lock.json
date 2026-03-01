@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "skills": {
+    "naming-conventions": {
+      "source": "phrazzld/claude-config",
+      "sourceType": "github",
+      "computedHash": "acedbb883fdadd17193363333fc20759da21a588f653ac9dc770429c824b8dfa"
+    }
+  }
+}
