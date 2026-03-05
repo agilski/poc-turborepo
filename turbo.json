@@ -14,6 +14,12 @@
       "dependsOn": ["^check-types"],
       "inputs": ["**/*.ts", "**/*.tsx", "tsconfig.json", "tsconfig.*.json"]
     },
+    "test:e2e": {
+      "dependsOn": ["^build"],
+      "inputs": ["$TURBO_DEFAULT$", "e2e/**", "playwright.config.ts"],
+      "outputs": ["test-results/**", "playwright-report/**"],
+      "cache": false
+    },
     "dev": {
       "cache": false,
       "persistent": true
