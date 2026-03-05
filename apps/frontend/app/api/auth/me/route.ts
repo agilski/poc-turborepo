@@ -13,8 +13,12 @@ export async function GET() {
   }
 
   try {
+    const parts = accessToken.split(".");
+    if (parts.length !== 3) {
+      return NextResponse.json({ message: "Invalid token" }, { status: 401 });
+    }
     const payload = JSON.parse(
-      Buffer.from(accessToken.split(".")[1], "base64url").toString()
+      Buffer.from(parts[1]!, "base64url").toString()
     );
     return NextResponse.json({
       userId: payload.sub,
