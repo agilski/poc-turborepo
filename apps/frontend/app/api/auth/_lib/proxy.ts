@@ -21,7 +21,15 @@ export async function proxyAuthRequest(
     );
   }
 
-  const data = await res.json();
+  let data;
+  try {
+    data = await res.json();
+  } catch {
+    return NextResponse.json(
+      { message: "Unexpected backend response" },
+      { status: 502 }
+    );
+  }
 
   if (!res.ok) {
     return NextResponse.json(data, { status: res.status });
@@ -81,6 +89,14 @@ export async function proxyWithAuth(backendPath: string) {
     );
   }
 
-  const data = await res.json();
+  let data;
+  try {
+    data = await res.json();
+  } catch {
+    return NextResponse.json(
+      { message: "Unexpected backend response" },
+      { status: 502 }
+    );
+  }
   return NextResponse.json(data, { status: res.status });
 }
