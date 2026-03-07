@@ -1,0 +1,111 @@
+:root {
+  /* Colors — Light */
+  --bg: #f7f4ef;
+  --bg-subtle: #efeade;
+  --surface: #ffffff;
+  --surface-hover: #faf8f5;
+  --text: #1a1814;
+  --text-secondary: #78716c;
+  --text-tertiary: #a8a29e;
+  --accent: #b45309;
+  --accent-hover: #92400e;
+  --accent-text: #ffffff;
+  --accent-soft: rgba(180, 83, 9, 0.06);
+  --error: #b91c1c;
+  --error-soft: rgba(185, 28, 28, 0.06);
+  --border: #e7e5e4;
+  --border-strong: #d6d3d1;
+  --input-bg: #faf9f7;
+  --input-border: #d6d3d1;
+  --input-focus-ring: rgba(180, 83, 9, 0.2);
+  --shadow-sm: 0 1px 2px rgba(26, 24, 20, 0.05);
+  --shadow-md: 0 4px 16px rgba(26, 24, 20, 0.06),
+    0 1px 4px rgba(26, 24, 20, 0.04);
+  --shadow-lg: 0 12px 40px rgba(26, 24, 20, 0.08),
+    0 2px 8px rgba(26, 24, 20, 0.03);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --transition-fast: 150ms var(--ease);
+  --transition-base: 250ms var(--ease);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #141210;
+    --bg-subtle: #1a1816;
+    --surface: #1e1c19;
+    --surface-hover: #26241f;
+    --text: #ede9e3;
+    --text-secondary: #a8a29e;
+    --text-tertiary: #78716c;
+    --accent: #f59e0b;
+    --accent-hover: #fbbf24;
+    --accent-text: #1a1814;
+    --accent-soft: rgba(245, 158, 11, 0.08);
+    --error: #ef4444;
+    --error-soft: rgba(239, 68, 68, 0.08);
+    --border: #2a2723;
+    --border-strong: #3d3a34;
+    --input-bg: #1a1816;
+    --input-border: #3d3a34;
+    --input-focus-ring: rgba(245, 158, 11, 0.25);
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.25),
+      0 1px 4px rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.3),
+      0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-body), system-ui, -apple-system, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

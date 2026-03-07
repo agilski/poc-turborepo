@@ -42,9 +42,12 @@ export default function SignInPage() {
   }
 
   return (
-    <div className={styles.container}>
+    <div className={styles.page}>
       <div className={styles.card}>
-        <h1 className={styles.title}>Sign In</h1>
+        <div className={styles.header}>
+          <h1 className={styles.title}>Sign In</h1>
+          <p className={styles.subtitle}>Welcome back to your account</p>
+        </div>
         <form className={styles.form} onSubmit={handleSubmit}>
           <div className={styles.field}>
             <label className={styles.label} htmlFor="email">
@@ -55,6 +58,7 @@ export default function SignInPage() {
               id="email"
               name="email"
               type="email"
+              placeholder="you@example.com"
               required
             />
           </div>
@@ -67,6 +71,7 @@ export default function SignInPage() {
               id="password"
               name="password"
               type="password"
+              placeholder="Enter your password"
               required
             />
           </div>

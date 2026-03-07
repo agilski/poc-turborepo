@@ -43,9 +43,12 @@ export default function SignUpPage() {
   }
 
   return (
-    <div className={styles.container}>
+    <div className={styles.page}>
       <div className={styles.card}>
-        <h1 className={styles.title}>Sign Up</h1>
+        <div className={styles.header}>
+          <h1 className={styles.title}>Sign Up</h1>
+          <p className={styles.subtitle}>Create your account to get started</p>
+        </div>
         <form className={styles.form} onSubmit={handleSubmit}>
           <div className={styles.field}>
             <label className={styles.label} htmlFor="name">
@@ -56,6 +59,7 @@ export default function SignUpPage() {
               id="name"
               name="name"
               type="text"
+              placeholder="Your name"
             />
           </div>
           <div className={styles.field}>
@@ -67,6 +71,7 @@ export default function SignUpPage() {
               id="email"
               name="email"
               type="email"
+              placeholder="you@example.com"
               required
             />
           </div>
@@ -79,6 +84,7 @@ export default function SignUpPage() {
               id="password"
               name="password"
               type="password"
+              placeholder="Min 8 characters"
               minLength={8}
               required
             />
