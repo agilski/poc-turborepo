@@ -5,6 +5,7 @@ export class HttpError extends Error {
   ) {
     super(`HTTP ${status}`);
     this.name = "HttpError";
+    this.message = "There is an error";
   }
 }
 
@@ -19,6 +20,7 @@ export async function httpPost<T = unknown>(
   });
 
   const data = await res.json();
+  const test = new HttpError(res.status, data);
 
   if (!res.ok) {
     throw new HttpError(res.status, data);

@@ -1,10 +1,25 @@
 {
   "version": 1,
   "skills": {
+    "clean-ddd-hexagonal": {
+      "source": "ccheney/robust-skills",
+      "sourceType": "github",
+      "computedHash": "b9a54e257685086d0034bd8277964452b7208e2f18bf68d158996936ce667b6a"
+    },
+    "frontend-design": {
+      "source": "anthropics/claude-code",
+      "sourceType": "github",
+      "computedHash": "e8118284a6365753790d44bb2758a6032b3af27fa84696428d9233f2be0f4e78"
+    },
     "naming-conventions": {
       "source": "phrazzld/claude-config",
       "sourceType": "github",
       "computedHash": "acedbb883fdadd17193363333fc20759da21a588f653ac9dc770429c824b8dfa"
+    },
+    "use-railway": {
+      "source": "railwayapp/railway-skills",
+      "sourceType": "github",
+      "computedHash": "cb99ff7cb24ce7c6136feb65e279a110389e0ee743d2e040f65f618c446c68a2"
     }
   }
 }

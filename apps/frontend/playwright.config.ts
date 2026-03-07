@@ -1,8 +1,7 @@
 import { defineConfig, devices } from "@playwright/test";
 import "dotenv/config";
 
-const PORT = process.env.PORT || 3001;
-const baseURL = `http://localhost:${PORT}`;
+const baseURL = process.env.FRONTEND_URL || "http://localhost:3001";
 
 export default defineConfig({
   testDir: "./e2e",
@@ -15,7 +14,7 @@ export default defineConfig({
   webServer: [
     {
       command: "pnpm dev --filter backend",
-      url: "http://localhost:3000",
+      url: process.env.BACKEND_URL || "http://localhost:3000",
       timeout: 120_000,
       reuseExistingServer: !process.env.CI,
       cwd: "../..",
