@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { getSessionUseCase, logoutUseCase } from "@/src/auth";
 import styles from "./dashboard.module.css";
 
 export default function DashboardPage() {
@@ -9,17 +10,20 @@ export default function DashboardPage() {
   const [email, setEmail] = useState("");
 
   useEffect(() => {
-    fetch("/api/auth/me")
-      .then((res) => {
-        if (!res.ok) throw new Error("Not authenticated");
-        return res.json();
+    getSessionUseCase
+      .execute()
+      .then((user) => {
+        if (!user) {
+          router.push("/signin");
+          return;
+        }
+        setEmail(user.email);
       })
-      .then((data) => setEmail(data.email))
       .catch(() => router.push("/signin"));
   }, [router]);
 
   async function handleLogout() {
-    await fetch("/api/auth/logout", { method: "POST" });
+    await logoutUseCase.execute();
     router.push("/signin");
   }
 
