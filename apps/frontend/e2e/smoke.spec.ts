@@ -6,7 +6,7 @@ test.describe("Smoke tests", () => {
     await expect(page).toHaveURL(/\/signin/);
   });
 
-  test("signin page renders correctly", async ({ page }) => {
+  test("signin page loads correctly", async ({ page }) => {
     await page.goto("/signin");
 
     await expect(page.locator("h1")).toHaveText("Sign In");
